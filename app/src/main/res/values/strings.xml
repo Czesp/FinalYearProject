@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Track</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email_hint">test@gmail.com</string>
+    <string name="password_hint">123456</string>
+    <string name="phone_hint">1234567890</string>
+    <string name="or">OR</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
 </resources>

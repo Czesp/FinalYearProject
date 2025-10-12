@@ -2,7 +2,9 @@ package com.example.track;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -33,5 +35,10 @@ public class SplashScreen extends AppCompatActivity {
         BusImage.setAnimation(Left_anim);
         text1.setAnimation(Bottom_anim);
         text2.setAnimation(Bottom_anim);
+
+        new android.os.Handler().postDelayed(() -> {
+            startActivity(new Intent(SplashScreen.this, LoginActivity.class));
+            finish();
+        }, 4000);
     }
 }

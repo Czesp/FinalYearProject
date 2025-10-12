@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bg">#F5F7FB</color>        <!-- page background -->
+    <color name="card_white">#FFFFFFFF</color>
+    <color name="muted">#9AA3B2</color>     <!-- placeholder / small text -->
+    <color name="primary_blue">#2B9BFF</color>
+    <color name="button_text">#FFFFFF</color>
+    <color name="divider">#E0E6EE</color>
+    <color name="accent">#5C6BC0</color>    <!-- tab underline etc -->
+    <color name="input_icon">#A3B0BF</color>
 </resources>

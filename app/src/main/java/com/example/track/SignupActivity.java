@@ -38,7 +38,7 @@ public class SignupActivity extends AppCompatActivity {
     private FirebaseFirestore firestore;
 
     String UserId;
-    KProgressHUD kProgressHUD;
+    KProgressHUD ProgressHUD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,12 +83,12 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void ProgressBar() {
-        kProgressHUD = KProgressHUD.create(SignupActivity.this)
+        ProgressHUD = KProgressHUD.create(SignupActivity.this)
                 .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
                 .setMaxProgress(100)
                 .setBackgroundColor(R.color.primary_blue)
                 .show();
-        kProgressHUD.setProgress(90);
+        ProgressHUD.setProgress(90);
     }
 
 //    private void SignUpUser() {
@@ -165,7 +165,7 @@ public class SignupActivity extends AppCompatActivity {
                         if (firebaseAuth.getCurrentUser() != null) {
                             UserId = firebaseAuth.getCurrentUser().getUid();
                         } else {
-                            if (kProgressHUD != null && kProgressHUD.isShowing()) kProgressHUD.dismiss();
+                            if (ProgressHUD != null && ProgressHUD.isShowing()) ProgressHUD.dismiss();
                             Toast.makeText(SignupActivity.this, "Signup failed: no user returned", Toast.LENGTH_SHORT).show();
                             return;
                         }
@@ -175,7 +175,7 @@ public class SignupActivity extends AppCompatActivity {
 
                         userInfo.set(model, SetOptions.merge())
                                 .addOnSuccessListener(unused -> {
-                                    if (kProgressHUD != null && kProgressHUD.isShowing()) kProgressHUD.dismiss();
+                                    if (ProgressHUD != null && ProgressHUD.isShowing()) ProgressHUD.dismiss();
                                     Toast.makeText(SignupActivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                                     startActivity(intent);
@@ -183,17 +183,17 @@ public class SignupActivity extends AppCompatActivity {
                                     finish();
                                 })
                                 .addOnFailureListener(e -> {
-                                    if (kProgressHUD != null && kProgressHUD.isShowing()) kProgressHUD.dismiss();
+                                    if (ProgressHUD != null && ProgressHUD.isShowing()) ProgressHUD.dismiss();
                                     Toast.makeText(SignupActivity.this, "Firestore error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                                 });
 
                     } else {
-                        if (kProgressHUD != null && kProgressHUD.isShowing()) kProgressHUD.dismiss();
+                        if (ProgressHUD != null && ProgressHUD.isShowing()) ProgressHUD.dismiss();
                         Toast.makeText(SignupActivity.this, "Auth failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnFailureListener(e -> {
-                    if (kProgressHUD != null && kProgressHUD.isShowing()) kProgressHUD.dismiss();
+                    if (ProgressHUD != null && ProgressHUD.isShowing()) ProgressHUD.dismiss();
                     Toast.makeText(SignupActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
     }

@@ -40,11 +40,14 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("io.github.rupinderjeet:kprogresshud:1.0.0")
     implementation(files("libs/meow-bottom-navigation-1.2.0.aar"))
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+
 }
 
 
